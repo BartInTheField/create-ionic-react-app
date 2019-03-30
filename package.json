@@ -1,6 +1,6 @@
 {
   "name": "create-ionic-react-app",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React, ionic, typescript.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "preferGlobal": true,
   "bin": {
-    "create-ionic-app": "./bin/main.js"
+    "create-ionic-react-app": "./bin/main.js"
   },
   "devDependencies": {
     "tslint": "^5.14.0",
