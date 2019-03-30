@@ -8,6 +8,7 @@
   },
   "author": "Bart in t Veld",
   "license": "ISC",
+  "preferGlobal": true,
   "bin": {
     "create-ionic-app": "./bin/main.js"
   },
