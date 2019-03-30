@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint:latest", "tslint-react"],
+  "rules": {
+    "trailing-comma": false,
+    "interface-name": false
+  },
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]
+  }
+}

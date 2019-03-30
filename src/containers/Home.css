@@ -1,0 +1,10 @@
+.home-container {
+  margin: auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+.home-img {
+  width: 200px !important;
+  height: auto !important;
+}
