@@ -11,21 +11,21 @@ import Home from "./containers/Home";
 import "./theme.css";
 
 const App = () => (
-  <Router>
-    <div id="app">
-      <IonApp>
-        <IonSplitPane contentId="main">
-          <SideMenu />
-          <div id="main">
-            <Switch>
-              <Route path="/about" component={About} />
-              <Route path="/" component={Home} />
-            </Switch>
-          </div>
-        </IonSplitPane>
-      </IonApp>
-    </div>
-  </Router>
+    <Router>
+        <div id="app">
+            <IonApp>
+                <IonSplitPane contentId="main">
+                    <SideMenu />
+                    <div id="main">
+                        <Switch>
+                            <Route path="/about" component={About} />
+                            <Route path="/" component={Home} />
+                        </Switch>
+                    </div>
+                </IonSplitPane>
+            </IonApp>
+        </div>
+    </Router>
 );
 
 export default App;
