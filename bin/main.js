@@ -9,15 +9,9 @@ const https = require('https')
 
 const defaultPackageJson = require('../package.json')
 const scripts = require('./scripts')
+const dependencies = require('./dependecies')
+const devDependencies = require('./devdependecies')
 const projectName = process.argv[2]
-
-const getDependencies = deps =>
-  Object.entries(deps)
-  .map(dep => `${dep[0]}@${dep[1]}`)
-  .toString()
-  .replace(/,/g, ' ')
-  .replace(/^/g, '')
-  .replace(/fs-extra[^\s]+/g, '');
 
 const writePackageJson = () => {
   const projectPackageJsonPath = `${projectName}/package.json`
@@ -72,11 +66,9 @@ const copyAdditonalConfigFiles = () => {
 const installDependencies = () => {
   return new Promise((resolve, reject) => {
     console.log(`⏳  - Installing dependencies... This is going to be a long one`)
-    const dependencies = getDependencies(defaultPackageJson.dependencies)
-    const devDependencies = getDependencies(defaultPackageJson.devDependencies)
 
     exec(
-      `cd ${projectName}&& npm i -D ${devDependencies} && npm i -S ${dependencies}`,
+      `cd ${projectName}&& npm i -D ${devDependencies.join(" ")} && npm i -S ${dependencies.join(" ")}`,
       (error, stdout, stderr) => {
         if (error) {
           console.error(`🛑  - npm failed us! :
