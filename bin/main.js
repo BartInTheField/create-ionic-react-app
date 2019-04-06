@@ -8,9 +8,10 @@ const {
 const https = require('https')
 
 const defaultPackageJson = require('../package.json')
-const scripts = require('./scripts')
-const dependencies = require('./dependecies')
-const devDependencies = require('./devdependecies')
+const scripts = require('./config/scripts')
+const browserlist = require('./config/browserlist')
+const dependencies = require('./config/dependecies')
+const devDependencies = require('./config/devdependecies')
 const projectName = process.argv[2]
 
 const writePackageJson = () => {
@@ -21,6 +22,7 @@ const writePackageJson = () => {
     const data = file
       .toString()
       .replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts)
+      .replace('"author": "",', '"author": "", \n  ' + browserlist)
 
     filesystem.writeFile(projectPackageJsonPath, data, error2 => error2 || true)
   })
@@ -111,9 +113,11 @@ exec(
     await copyAdditonalConfigFiles()
     console.log(`🍿  - Done initializing ${projectName}`)
 
-    await installDependencies()
+    // await installDependencies()
     await copySourceFiles()
 
     console.log(`🚀  - ${projectName} is ready!`)
+    console.log(`First type 'cd ${projectName}' to go into the project folder.`)
+    console.log(`After that type 'npm start' to start the development server.`)
   }
 )
