@@ -99,25 +99,29 @@ const copySourceFiles = () => {
   })
 }
 
-console.log(`🎬  - Initializing ${projectName}...`)
-exec(
-  `mkdir ${projectName} && cd ${projectName} && npm init -f`,
-  async (error, stdout, stderr) => {
-    if (error) {
-      console.error(`🛑  - Okay cut!, error occured:
-            ${error}`)
-      return
-    }
+if(projectName !== undefined) {
+    console.log(`🎬  - Initializing ${projectName}...`)
+    exec(
+      `mkdir ${projectName} && cd ${projectName} && npm init -f`,
+      async (error, stdout, stderr) => {
+        if (error) {
+          console.error(`🛑  - Okay cut!, error occured:
+                ${error}`)
+          return
+        }
 
-    writePackageJson()
-    await copyAdditonalConfigFiles()
-    console.log(`🍿  - Done initializing ${projectName}`)
+        writePackageJson()
+        await copyAdditonalConfigFiles()
+        console.log(`🍿  - Done initializing ${projectName}`)
 
-    // await installDependencies()
-    await copySourceFiles()
+        await installDependencies()
+        await copySourceFiles()
 
-    console.log(`🚀  - ${projectName} is ready!`)
-    console.log(`First type 'cd ${projectName}' to go into the project folder.`)
-    console.log(`After that type 'npm start' to start the development server.`)
-  }
-)
+        console.log(`🚀  - ${projectName} is ready!`)
+        console.log(`First type 'cd ${projectName}' to go into the project folder.`)
+        console.log(`After that type 'npm start' to start the development server.`)
+      }
+    )
+} else {
+    console.log(`🛑  - We need a project name! Like this 'create-ionic-react-app projectName'`);
+}
