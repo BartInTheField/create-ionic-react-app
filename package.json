@@ -8,6 +8,7 @@
     },
     "author": "Bart in t Veld",
     "license": "ISC",
+    "keywords": ["create", "ionic", "react", "app"],
     "preferGlobal": true,
     "bin": {
         "create-ionic-react-app": "./bin/main.js"
