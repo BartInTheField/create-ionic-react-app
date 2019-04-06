@@ -7,7 +7,6 @@ const {
 } = require('child_process')
 const https = require('https')
 
-const defaultPackageJson = require('../package.json')
 const scripts = require('./config/scripts')
 const browserlist = require('./config/browserlist')
 const dependencies = require('./config/dependecies')
