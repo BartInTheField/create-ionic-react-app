@@ -15,18 +15,19 @@ interface Page {
 const pages: Page[] = [
     { title: "Home", path: "/", icon: "home" },
     { title: "About", path: "/about", icon: "information" },
+    { title: "Todo", path: "/todo", icon: "list" },
 ];
 
 type Props = RouteComponentProps<{}>;
 
 const SideMenu = ({ history }: Props) => {
-    const [activePage, setActivePage] = useState(pages[0].title);
+    const [activePage, setActivePage] = useState(history.location.pathname);
 
     const renderMenuItems = (): JSX.Element[] => {
         return pages.map((page: Page) => {
-            const getActiveColor = (): string => page.title === activePage ? "primary" : "";
+            const getActiveColor = (): string => page.path === activePage ? "primary" : "";
             return (
-                <IonMenuToggle key={page.title} auto-hide="false">
+                <IonMenuToggle key={page.path} auto-hide="false">
                     <IonItem
                         button={true}
                         onClick={navigateToPage.bind(undefined, page)}
@@ -49,7 +50,7 @@ const SideMenu = ({ history }: Props) => {
 
     const navigateToPage = (page: Page) => {
         history.push(page.path);
-        setActivePage(page.title);
+        setActivePage(page.path);
     };
 
     return (

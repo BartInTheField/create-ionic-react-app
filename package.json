@@ -1,20 +1,27 @@
 {
     "name": "create-ionic-react-app",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "description": "React, ionic, typescript.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "default": "node bin/main.js develop",
+        "redux": "node bin/main.js develop --redux"
     },
     "author": "Bart in t Veld",
     "license": "ISC",
-    "keywords": ["create", "ionic", "react", "app"],
+    "keywords": [
+        "create",
+        "ionic",
+        "react",
+        "app"
+    ],
     "preferGlobal": true,
     "bin": {
         "create-ionic-react-app": "./bin/main.js"
     },
     "dependencies": {
-        "fs-extra": "^7.0.1"
+        "fs-extra": "^7.0.1",
+        "yargs": "^13.2.2"
     },
     "browserslist": [
         ">0.2%",
